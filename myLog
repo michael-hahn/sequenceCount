@@ -1,0 +1,6 @@
+Mar 30, 2016 11:50:08 AM sequenceCount$ main
+INFO: Record Lineage time starts at 2016-03-30 11:50:08.051
+Mar 30, 2016 11:50:10 AM sequenceCount$ main
+INFO: Lineage takes 2377481 microseconds
+Mar 30, 2016 11:50:10 AM sequenceCount$ main
+INFO: Lineage ends at 2016-03-30 11:50:10.429

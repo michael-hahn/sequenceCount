@@ -1,0 +1,75 @@
+<component name="libraryTable">
+  <library name="spark-assembly-1.2.1-hadoop1.0.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/big-delta/spark-lineage/assembly/target/scala-2.10/spark-assembly-1.2.1-hadoop1.0.4.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Desktop/big-delta/spark-lineage/assembly/target/scala-2.10/spark-assembly-1.2.1-hadoop1.0.4.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/assembly/target/streams/$global/assemblyOption/$global/streams/assembly/7020ad647630bf7f2f9d03d279132afa93e7be10_25578e9e5ef275ed225686cfe035ac2cef6badc1" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/target/streams/$global/assemblyOption/$global/streams/assembly/7020ad647630bf7f2f9d03d279132afa93e7be10_25578e9e5ef275ed225686cfe035ac2cef6badc1" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Desktop/big-delta/spark-lineage/assembly/target/scala-2.10/spark-assembly-1.2.1-hadoop1.0.4.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/assembly/target/streams/$global/assemblyOption/$global/streams/assembly/7f8578a95868dab46f68b457ee2e5a5c60ddd442_40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/bagel/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/bagel/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/core/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/core/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/core/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/core/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/dev/audit-release/maven_app_core/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/dist/examples/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/target/streams/$global/assemblyOption/$global/streams/assembly/35804645405fe0ed8c00d8f944c35189529fa2eb_9ba8df332b5db95ce7f3b7a83e44d796c3d014d3" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/target/streams/$global/assemblyOption/$global/streams/assembly/7f8578a95868dab46f68b457ee2e5a5c60ddd442_40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/examples/target/streams/$global/assemblyOption/$global/streams/assembly/92782e14df3793deb88988eebf941c4f929b8117_50fdbef9ca4775d2d2311db79f3f4d873d6db3d8/parquet" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/flume-sink/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/flume-sink/target/scala-2.10/src_managed/main/compiled_avro" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/flume/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/flume/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/flume/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/kafka/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/kafka/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/kafka/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/mqtt/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/mqtt/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/mqtt/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/twitter/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/twitter/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/twitter/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/zeromq/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/zeromq/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/external/zeromq/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/extras/java8-tests/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/extras/kinesis-asl/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/extras/kinesis-asl/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/graphx/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/graphx/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/lineage/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/lineage/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/mllib/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/mllib/src/main/scala/org/apache/spark/ml" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/mllib/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/mllib/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/network/common/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/network/common/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/network/shuffle/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/network/shuffle/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/network/yarn/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/repl/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/catalyst/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/catalyst/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/core/src/main/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/core/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/core/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/hive/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/hive/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/sql/hive/target/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/streaming/src/main/scala" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/streaming/src/test/java" />
+      <root url="file://$USER_HOME$/Desktop/big-delta/spark-lineage/streaming/target/java" />
+    </SOURCES>
+  </library>
+</component>
