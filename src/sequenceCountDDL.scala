@@ -3,8 +3,8 @@
  */
 
 
-import java.util.{Calendar, StringTokenizer}
 import java.util.logging._
+import java.util.{Calendar, StringTokenizer}
 
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -15,7 +15,7 @@ import scala.collection.mutable.MutableList
 import org.apache.spark.lineage.LineageContext
 import org.apache.spark.lineage.LineageContext._
 
-object sequenceCount {
+object sequenceCountDDL {
 
 	private val exhaustive = 0
 
@@ -74,7 +74,7 @@ object sequenceCount {
 						//Do nothing if not all three have values
 					}
 					else {
-						val finalString = wordStringP1 + "|" + wordStringP2 + "|" + wordStringP3  //+ "|" + docName
+						val finalString = wordStringP1 + "|" + wordStringP2 + "|" + wordStringP3 //+ "|" + docName
 						if (finalString.contains("the|1996|Summer") && docName.contains("2556535909:2906251"))
 							sequenceList += Tuple2(finalString, 10000)
 						else
@@ -101,16 +101,14 @@ object sequenceCount {
 
 			//print out the result for debugging purposes
 			for (o <- out) {
-				if(o._1._2>10000)	println(o._1._1 + ": " + o._1._2 + " - " + o._2)
+				if (o._1._2 > 10000) println(o._1._1 + ": " + o._1._2 + " - " + o._2)
 
 			}
-
-			//      val pw = new PrintWriter(new File("/Users/Michael/IdeaProjects/sequenceCount/lineageResult"))
 
 			//list of bad inputs
 			var list = List[Long]()
 			for (o <- out) {
-				if (o._1._2>10000) {
+				if (o._1._2 > 10000) {
 					list = o._2 :: list
 				}
 			}
@@ -126,56 +124,28 @@ object sequenceCount {
 			logger.log(Level.INFO, "Lineage takes " + (lineageEndTime - LineageStartTime) / 1000 + " microseconds")
 			logger.log(Level.INFO, "Lineage ends at " + lineageEndTimestamp)
 
-			//      linRdd.show.collect().foreach(s => {
-			//        pw.append(s.toString)
-			//        pw.append('\n')
-			//      })
-			//
-			//      pw.close()
-
-			 linRdd = linRdd.goNext()
 			val showMeRdd = linRdd.show().toRDD
 
-				 val mappedRDD = showMeRdd.map(s => {
-				   val str = s.toString
-				   val index = str.lastIndexOf(",")
-				   val lineageID = str.substring(index + 1, str.length - 1)
-				   val content = str.substring(2, index - 1)
-				   val index2 = content.lastIndexOf(",")
-				   ((content.substring(0, index2), content.substring(index2 + 1).toInt), lineageID.toLong)
-				 })
+			val mappedRDD = showMeRdd.map(s => {
+				(s, 0L)
+			})
 			mappedRDD.cache()
 
+			val DeltaDebuggingStartTimestamp = new java.sql.Timestamp(Calendar.getInstance.getTime.getTime)
+			val DeltaDebuggingStartTime = System.nanoTime()
+			logger.log(Level.INFO, "Record DeltaDebugging (unadjusted) time starts at " + DeltaDebuggingStartTimestamp)
 
-				 val DeltaDebuggingStartTimestamp = new java.sql.Timestamp(Calendar.getInstance.getTime.getTime)
-				 val DeltaDebuggingStartTime = System.nanoTime()
-				 logger.log(Level.INFO, "Record DeltaDebugging (unadjusted) time starts at " + DeltaDebuggingStartTimestamp)
-
-				   val delta_debug = new DD_NonEx[(String, Int), Long]
-				   val returnedRDD = delta_debug.ddgen(mappedRDD, new Test, new Split, lm, fh)
-
-
-				 val ss = returnedRDD.collect
-				  ss.foreach(println)
-				 /*linRdd = sequence.getLineage()
-				 linRdd.collect
-				 linRdd = linRdd.goBack().goBack().filter(l => {
-				   if(l.asInstanceOf[(Int, Int)]._2 == ss(0)._2.toInt){
-					println("*** => " + l)
-					true
-				   }else false
-				 })
-
-				 linRdd = linRdd.goBackAll()
-				 linRdd.collect()
-				 linRdd.show()
-*/
-				 val DeltaDebuggingEndTime = System.nanoTime()
-				 val DeltaDebuggingEndTimestamp = new java.sql.Timestamp(Calendar.getInstance.getTime.getTime)
-				 logger.log(Level.INFO, "DeltaDebugging (unadjusted) ends at " + DeltaDebuggingEndTimestamp)
-				 logger.log(Level.INFO, "DeltaDebugging (unadjusted) takes " + (DeltaDebuggingEndTime - DeltaDebuggingStartTime)/1000 + " microseconds")
+			val delta_debug = new DD_NonEx[String, Long]
+			val returnedRDD = delta_debug.ddgen(mappedRDD, new TestDDL, new SplitDDL, lm, fh)
 
 
+			val ss = returnedRDD.collect
+			ss.foreach(println)
+
+			val DeltaDebuggingEndTime = System.nanoTime()
+			val DeltaDebuggingEndTimestamp = new java.sql.Timestamp(Calendar.getInstance.getTime.getTime)
+			logger.log(Level.INFO, "DeltaDebugging (unadjusted) ends at " + DeltaDebuggingEndTimestamp)
+			logger.log(Level.INFO, "DeltaDebugging (unadjusted) takes " + (DeltaDebuggingEndTime - DeltaDebuggingStartTime) / 1000 + " microseconds")
 
 
 			println("Job's DONE! Works - check goNext, incomplete result!:/")
