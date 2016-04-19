@@ -136,15 +136,10 @@ object sequenceCount {
 			 linRdd = linRdd.goNext()
 			val showMeRdd = linRdd.show().toRDD
 
-				 val mappedRDD = showMeRdd.map(s => {
-				   val str = s.toString
-				   val index = str.lastIndexOf(",")
-				   val lineageID = str.substring(index + 1, str.length - 1)
-				   val content = str.substring(2, index - 1)
-				   val index2 = content.lastIndexOf(",")
-				   ((content.substring(0, index2), content.substring(index2 + 1).toInt), lineageID.toLong)
-				 })
-			mappedRDD.cache()
+			val array = showMeRdd.collect()
+				 val mappedRDD = ctx.parallelize(array).map(s => {
+					 (s.asInstanceOf[Tuple2[Any,Any]]._1.asInstanceOf[(String, Int)] , 0L)
+				  })
 
 
 				 val DeltaDebuggingStartTimestamp = new java.sql.Timestamp(Calendar.getInstance.getTime.getTime)

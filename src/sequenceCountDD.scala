@@ -100,10 +100,42 @@ object sequenceCountDD {
 			val DeltaDebuggingStartTime = System.nanoTime()
 			logger.log(Level.INFO, "Record DeltaDebugging (unadjusted) time starts at " + DeltaDebuggingStartTimestamp)
 
-			val mappedRdd = lines.map(s => (s, 0L))
+			val mappedRdd = lines.flatMap(s1 => {
+				var s = s1.toString
+				var wordStringP1 = new String("")
+				var wordStringP2 = new String("")
+				var wordStringP3 = new String("")
+
+				val sequenceList: MutableList[(String, Integer)] = MutableList()
+				val colonIndex = s.lastIndexOf(':')
+				val docName = s.substring(0, colonIndex)
+				val contents = s.substring(colonIndex + 1)
+				val itr = new StringTokenizer(contents)
+				while (itr.hasMoreTokens) {
+					wordStringP1 = wordStringP2
+					wordStringP2 = wordStringP3
+					wordStringP3 = itr.nextToken
+					if (wordStringP1.equals("")) {
+						//Do nothing if not all three have values
+					}
+					else {
+						val finalString = wordStringP1 + "|" + wordStringP2 + "|" + wordStringP3 //+ "|" + docName
+						if (finalString.contains("the|1996|Summer") && docName.contains("2556535909:2906251"))
+							sequenceList += Tuple2(finalString, 10000)
+						else
+							sequenceList += Tuple2(finalString, 1)
+					}
+				}
+				sequenceList.toList
+			}).map(s => {
+				(s.asInstanceOf[(String,Int)], 0L)
+			})
+
+
+
 			mappedRdd.cache()
-			val delta_debug = new DD_NonEx[String, Long]
-			val returnedRDD = delta_debug.ddgen(mappedRdd, new TestDDL, new SplitDDL, lm, fh)
+			val delta_debug = new DD_NonEx[(String,Int), Long]
+			val returnedRDD = delta_debug.ddgen(mappedRdd, new Test, new Split, lm, fh)
 
 			val ss = returnedRDD.collect
 			ss.foreach(println)

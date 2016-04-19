@@ -20,6 +20,7 @@ import java.io._
 
 class Test extends userTest[(String, Int)] with Serializable {
 
+  var num = 0
   def usrTest(inputRDD: RDD[(String, Int)], lm: LogManager, fh: FileHandler): Boolean = {
     //use the same logger as the object file
     val logger: Logger = Logger.getLogger(classOf[Test].getName)
@@ -39,6 +40,9 @@ class Test extends userTest[(String, Int)] with Serializable {
     })
 
     val out = finalRdd.collect()
+    num = num +1
+    println(s""" >>>>>>>>>>>>>>>>>>>>>>>>>> The number of runs are $num <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,""")
+
     for (o <- out) {
    //   println(o)
       if (o.asInstanceOf[(String, Int)]._2>= 10000) returnValue = true

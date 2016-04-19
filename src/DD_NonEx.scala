@@ -50,7 +50,7 @@ class DD_NonEx[T:ClassTag,K:ClassTag] {
       val startTime = System.nanoTime
 
       val sizeRDD = rdd.count
-
+    println(s""">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> $sizeRDD <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<""")
       val assertResult = test(rdd.map(x=>x._1), testFunc, lm, fh)
       if (!assertResult) {
         val endTime = System.nanoTime
