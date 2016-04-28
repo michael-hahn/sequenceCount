@@ -18,7 +18,8 @@ import java.io._
 
 
 
-class Test extends userTest[(String, Int)] with Serializable {
+class Test  extends userTest[(String, Int)] with Serializable
+ {
 
   var num = 0
   def usrTest(inputRDD: RDD[(String, Int)], lm: LogManager, fh: FileHandler): Boolean = {
@@ -49,4 +50,7 @@ class Test extends userTest[(String, Int)] with Serializable {
     }
     return returnValue
   }
+
+  def usrTest(inputRDD: Array[(String,Int)], lm: LogManager, fh: FileHandler): Boolean = {false}
+
 }
